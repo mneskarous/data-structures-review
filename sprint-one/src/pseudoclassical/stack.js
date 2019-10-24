@@ -1,0 +1,5 @@
+var Stack = function() {
+};
+
+
+
