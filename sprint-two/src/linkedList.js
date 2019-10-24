@@ -30,7 +30,20 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    
+    // set the current node to the head of the list
+    var currentNode = this.head;
+    // while there is a current node
+    while (currentNode) {
+      // if the value of the current node is equal to the target
+      if (currentNode.value === target) {
+        // return true
+        return true;
+      }
+      // set the current node to the node after the current node
+      currentNode = currentNode.next;
+    }
+    // return false
+    return false;
   };
 
   return list;
