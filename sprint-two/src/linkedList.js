@@ -21,11 +21,16 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    
+    // create a head and set it to the head of the list
+    var head = this.head;
+    // set the head of the list to the node after the head
+    this.head = this.head.next;
+    // return the value of the original head
+    return head.value;
   };
 
   list.contains = function(target) {
-
+    
   };
 
   return list;
