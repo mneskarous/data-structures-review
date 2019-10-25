@@ -5,7 +5,7 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     // create a node and set it to a new node object with the value as argument
-    var node = new Node(value);
+    var node = Node(value);
     // if there is no head
     if (!this.head) {
       // set the head to the node
