@@ -83,7 +83,37 @@ HashTable.prototype.remove = function(k) {
 };
 
 HashTable.prototype.resize = function(newSize) {
+  // create old storage set to storage object
+  var oldStorage = this._storage;
 
+  // set input to at least 8
+  newSize = Math.max(newSize, 8);
+  // if the new size is equal to the storage limit
+  if (newSize === this._limit) {
+    // stop
+    return; 
+  }
+  // otherwise set the storage limit to the new size
+  this._limit = newSize;
+  // set storage object's limit to the storage limit
+  this._storage = LimitedArray(this._limit);
+  // set the size to 0
+  this._size = 0;
+  // for each bucket in the old storage object
+  oldStorage.each(function(bucket) {
+    // if there is no bucket
+    if (!bucket) {
+      // stop
+      return; 
+    }
+    // otherwise iterate through the bucket
+    for (var i = 0; i < bucket.length; i++) {
+      // create tuple set to the current item in the bucket
+      var tuple = bucket[i];
+      // insert the key and value of the tuple into the bucket
+      this.insert(tuple[0], tuple[1]);
+    }
+  }.bind(this));
 }
 
 
