@@ -2,6 +2,8 @@
 
 // Instantiate a new graph
 var Graph = function() {
+  // create a storage object
+  this.storage = {};
 };
 
 // Add a node to the graph, passing in the node's value.
