@@ -8,6 +8,8 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  // set the node to the node or the connection between nodes
+  this.storage[node] = this.storage[node] || { edges: {} };
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
