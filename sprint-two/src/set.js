@@ -7,7 +7,8 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  
+  // set the value of the storage object at the item key to true
+  this._storage[item] = true;
 };
 
 setPrototype.contains = function(item) {
