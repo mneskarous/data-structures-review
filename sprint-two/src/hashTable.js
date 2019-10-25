@@ -114,7 +114,7 @@ HashTable.prototype.resize = function(newSize) {
       this.insert(tuple[0], tuple[1]);
     }
   }.bind(this));
-}
+};
 
 
 /*
