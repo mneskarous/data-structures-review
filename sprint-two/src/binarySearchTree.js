@@ -37,11 +37,23 @@ binaryTreeMethods.insert = function(val) {
 };
 
 binaryTreeMethods.contains = function(target) {
-
+  // base case
+  // if the target is equal to the node's value
+  if (target === this.value) {
+    // return true
+    return true;
+  }
+  // recursive cases
+  // else if the target is less than the node's value
+  else if (target < this.value) {
+    // return the boolean value of the left child's value and the left child's children's values
+    return !!(this.left && this.left.contains(target));
+  } else // else
+  // return he boolean value of the right child's value and the right child's children's values
+  return !!(this.right && this.right.contains(target));
 };
 
 binaryTreeMethods.depthFirstLog = function(callback) {
-
 };
 
 /*
