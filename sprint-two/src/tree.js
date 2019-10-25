@@ -2,8 +2,9 @@ var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
 
-  // your code here
-  newTree.children = null;  // fix me
+  newTree.children = [];
+
+  _.extend(newTree, treeMethods);
 
   return newTree;
 };
@@ -11,10 +12,14 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
+
 };
 
 treeMethods.contains = function(target) {
+
 };
+
+
 
 
 
