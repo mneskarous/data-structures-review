@@ -54,6 +54,18 @@ binaryTreeMethods.contains = function(target) {
 };
 
 binaryTreeMethods.depthFirstLog = function(callback) {
+  // invoke the callback function on the node's value
+  callback(this.value);
+  // if the left child is not null
+  if (this.left !== null) {
+    // recursively invoke the callback on the left child
+    this.left.depthFirstLog(callback);
+  }
+  // if the right child is not null
+  if (this.right !== null) {
+    // recursively invoke the callback on the right child
+    this.right.depthFirstLog(callback);
+  }
 };
 
 /*
