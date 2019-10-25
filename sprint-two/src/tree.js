@@ -38,7 +38,22 @@ treeMethods.contains = function(target) {
   return false;
 };
 
-
+treeMethods.traverse = function(callback) {
+  // invoke the callback with the value as the parameter
+  callback(this.value);
+  // base case
+  // if there is no children array
+  if (!this.children) {
+    // stop
+    return;
+  }
+  // recursive case
+  // otherwise, iterate through the children array
+  for (var i = 0; i < this.children.length; i++) {
+    // invoke the traverse method recursively on the current child
+    this.children[i].traverse(callback);
+  }
+};
 
 
 
