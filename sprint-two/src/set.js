@@ -12,9 +12,14 @@ setPrototype.add = function(item) {
 };
 
 setPrototype.contains = function(item) {
+  // return the boolean value of the storage object at the item key
+  return !!this._storage[item];
+  
 };
 
 setPrototype.remove = function(item) {
+  // delete the value of the storage object at the item key
+  delete this._storage[item];
 };
 
 /*
