@@ -19,7 +19,23 @@ treeMethods.addChild = function(value) {
 };
 
 treeMethods.contains = function(target) {
-
+  // base case
+  // if the value of the tree node is the target
+  if (this.value === target) {
+    // return true
+    return true;
+  }
+  // recursive case
+  // iterate through children array
+  for (var i = 0; i < this.children.length; i++) {
+    // if the current item in the children array is equal to the target
+    if (this.children[i].contains(target)) {
+      // return true
+      return true;
+    }
+  }
+  // return false
+  return false;
 };
 
 
