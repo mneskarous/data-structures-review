@@ -59,6 +59,27 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
+  // create bucket set to itself or empty array
+  var bucket = this._storage.get(index) || [];
+  // iterate through bucket
+  for (var i = 0; i < bucket.length; i++) {
+    // create tuple set to current item in array
+    var tuple = bucket[i];
+    // if the tuple array's key is equal to the key input
+    if (tuple[0] === k) {
+      // remove the tuple from the bucket
+      bucket.splice(i, 1);
+      // decrement the size by 1
+      this._size--;
+      // if the size is less than 1/4 of the storage limit
+      if (this._size < 0.25 * this._limit) {
+        // resize the storage limit by half
+        this.resize(this._limit * 0.5);
+      }
+      // return the tuple's value
+      return tuple[1];
+    }
+  }
 };
 
 HashTable.prototype.resize = function(newSize) {
