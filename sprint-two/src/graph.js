@@ -70,6 +70,11 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  // iterate through each node in the graph
+  for (var node in this.storage) {
+    // pass the current node into the callback function
+    cb(node);
+  }
 };
 
 /*
