@@ -41,7 +41,20 @@ HashTable.prototype.insert = function(k, v) {
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-
+  // create a bucket and set it to itself or an empty array
+  var bucket = this._storage.get(index) || [];
+  // iterate through the bucket
+  for (var i = 0; i < bucket.length; i++) {
+    // set the tuple to the current item in the bucket
+    var tuple = bucket[i];
+    // if the tuple array's key is equal to the key input
+    if (tuple[0] === k) {
+      // return the tuple's value
+      return tuple[1];
+    }
+  }
+  // otherwise, return undefined
+  return undefined;
 };
 
 HashTable.prototype.remove = function(k) {
